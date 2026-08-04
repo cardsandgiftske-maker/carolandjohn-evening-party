@@ -39,10 +39,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenHostDashboard,
           <button onClick={() => onNavigate('rsvp')} className="hover:text-amber-200 transition-colors">RSVP</button>
         </div>
 
-        {/* Date summary */}
+        {/* Date & Location summary */}
         <div className="flex items-center space-x-2 text-[11px] text-amber-300 font-mono bg-[#180308] border border-rose-900/40 px-4 py-1.5 rounded-full">
           <Calendar className="w-3.5 h-3.5 text-amber-300" />
-          <span>August 22, 2026, 7:00 PM • Evening Reception Party</span>
+          <span>August 22, 2026 • Brighton International School</span>
         </div>
 
         <div className="border-t border-rose-900/40 w-full pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-rose-300/60 gap-4">
