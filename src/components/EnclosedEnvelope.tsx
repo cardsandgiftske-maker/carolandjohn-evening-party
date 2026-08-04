@@ -123,14 +123,15 @@ export const EnclosedEnvelope: React.FC<EnclosedEnvelopeProps> = ({ onOpenComple
               Request the pleasure of your company for an evening of music, toasts &amp; dancing.
             </p>
 
-            <div className="py-2 border-t border-b border-rose-900/40 my-3 grid grid-cols-2 gap-2 text-xs">
+            <div className="py-2.5 border-t border-b border-rose-900/40 my-3 grid grid-cols-2 gap-2 text-xs">
               <div>
-                <span className="text-[10px] uppercase font-mono text-amber-300 block">Date</span>
-                <span className="font-serif text-rose-100 text-xs font-medium">{EVENT_DETAILS.formattedDate}</span>
+                <span className="text-[10px] uppercase font-mono text-amber-300 block">Date &amp; Time</span>
+                <span className="font-serif text-rose-100 text-xs font-medium block">{EVENT_DETAILS.formattedDate}</span>
+                <span className="font-serif text-amber-200/90 text-[11px] block">{EVENT_DETAILS.formattedTime}</span>
               </div>
               <div>
-                <span className="text-[10px] uppercase font-mono text-amber-300 block">Time</span>
-                <span className="font-serif text-rose-100 text-xs font-medium">{EVENT_DETAILS.formattedTime}</span>
+                <span className="text-[10px] uppercase font-mono text-amber-300 block">Location</span>
+                <span className="font-serif text-rose-100 text-xs font-medium block">{EVENT_DETAILS.venueName}</span>
               </div>
             </div>
 
