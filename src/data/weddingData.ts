@@ -8,16 +8,16 @@ export const EVENT_DETAILS: EventDetails = {
   dateISO: '2026-08-22T19:00:00',
   formattedDate: 'Saturday, August 22, 2026',
   formattedTime: '7:00 PM – Till Late',
-  venueName: 'Evening Reception Venue',
+  venueName: 'Brighton International School',
   rsvpDeadlineFormatted: 'August 16, 2026',
   rsvpDeadlineISO: '2026-08-16',
   dressCode: 'Elegant evening attire',
 };
 
 export const VENUE_INFO: VenueLocation = {
-  name: 'The Grand Ballroom',
-  address: '450 Kensington Regency Way',
-  city: 'London / Central City',
+  name: 'Brighton International School',
+  address: 'Brighton International School',
+  city: 'Brighton',
   postcode: 'SW1A 1AA',
   coordinates: {
     lat: 51.5074,
