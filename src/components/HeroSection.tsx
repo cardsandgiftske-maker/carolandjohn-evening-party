@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { EVENT_DETAILS } from '../data/weddingData';
-import { Calendar, Clock, Sparkles, ChevronDown } from 'lucide-react';
+import { Calendar, Clock, MapPin, Sparkles, ChevronDown } from 'lucide-react';
 
 interface HeroSectionProps {
   onRsvpClick: () => void;
@@ -91,6 +91,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRsvpClick, onEnterta
           <div className="flex items-center space-x-2 bg-[#25050f]/80 border border-rose-800/40 px-4 py-2 rounded-2xl backdrop-blur-md">
             <Clock className="w-4 h-4 text-amber-300" />
             <span className="font-medium text-rose-100">{EVENT_DETAILS.formattedTime}</span>
+          </div>
+          <div className="flex items-center space-x-2 bg-[#25050f]/80 border border-rose-800/40 px-4 py-2 rounded-2xl backdrop-blur-md">
+            <MapPin className="w-4 h-4 text-amber-300" />
+            <span className="font-medium text-rose-100">{EVENT_DETAILS.venueName}</span>
           </div>
         </div>
 
