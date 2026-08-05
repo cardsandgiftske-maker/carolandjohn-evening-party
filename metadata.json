@@ -1,0 +1,6 @@
+{
+  "name": "Carole & John Wedding Evening Party",
+  "description": "Elegant burgundy themed evening party invitation website for Carole and John's wedding reception on August 22, 2026, featuring countdown, schedule of events, interactive RSVP, and host portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
