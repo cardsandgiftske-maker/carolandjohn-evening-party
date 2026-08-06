@@ -69,9 +69,6 @@ export const EnclosedEnvelope: React.FC<EnclosedEnvelopeProps> = ({ onOpenComple
           <p className="font-serif text-xs sm:text-sm italic text-amber-200/90 mt-1.5 tracking-wider">
             Evening Party Reception | August 22, 2026
           </p>
-          <p className="font-sans text-[11px] sm:text-xs text-rose-200/80 mt-2.5 max-w-xs sm:max-w-sm mx-auto leading-relaxed bg-[#1b040c]/60 border border-rose-900/30 px-3.5 py-1.5 rounded-full backdrop-blur-sm">
-            We adore your little ones, but our evening reception will be an adults-only celebration.
-          </p>
         </div>
 
         {/* 3D Envelope Wrapper */}
