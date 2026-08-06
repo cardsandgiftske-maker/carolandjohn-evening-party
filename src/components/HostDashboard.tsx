@@ -146,9 +146,49 @@ export const HostDashboard: React.FC<HostDashboardProps> = ({
     return matchesSearch && matchesStatus;
   });
 
-  const handleExportCSV = () => {
-    window.open('/api/rsvps/export/csv', '_blank');
-  };
+ const handleExportCSV = () => {
+  const headers = [
+    "Name",
+    "Status",
+    "Guests",
+    "Phone",
+    "Email",
+    "Song Request",
+    "Message",
+    "Submitted At"
+  ];
+
+  const rows = rsvps.map(r => [
+    r.primaryGuestName,
+    r.status,
+    r.guestCount,
+    r.phone || "",
+    r.email || "",
+    r.songRequest || "",
+    r.messageToCouple || "",
+    new Date(r.submittedAt).toLocaleString()
+  ]);
+
+  const csvContent = [
+    headers.join(","),
+    ...rows.map(row =>
+      row.map(value => `"${String(value).replace(/"/g, '""')}"`).join(",")
+    )
+  ].join("\n");
+
+  const blob = new Blob([csvContent], {
+    type: "text/csv;charset=utf-8;"
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "Wedding_RSVPs.csv";
+  link.click();
+
+  URL.revokeObjectURL(url);
+};
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#120206]/90 backdrop-blur-md animate-fadeIn">
