@@ -59,7 +59,7 @@ export const EnclosedEnvelope: React.FC<EnclosedEnvelopeProps> = ({ onOpenComple
       <div className="relative w-full max-w-lg mx-auto flex flex-col items-center justify-center min-h-[400px] z-10">
         
         {/* Top Header Information above Envelope */}
-        <div className="text-center mb-6 z-30 animate-fadeIn">
+        <div className="text-center mb-6 z-30 animate-fadeIn max-w-md px-2">
           <span className="block text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.25em] text-amber-300/90 mb-1">
             Personal Invitation
           </span>
@@ -68,6 +68,9 @@ export const EnclosedEnvelope: React.FC<EnclosedEnvelopeProps> = ({ onOpenComple
           </h2>
           <p className="font-serif text-xs sm:text-sm italic text-amber-200/90 mt-1.5 tracking-wider">
             Evening Party Reception | August 22, 2026
+          </p>
+          <p className="font-sans text-[11px] sm:text-xs text-rose-200/80 mt-2.5 max-w-xs sm:max-w-sm mx-auto leading-relaxed bg-[#1b040c]/60 border border-rose-900/30 px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+            We adore your little ones, but our evening reception will be an adults-only celebration.
           </p>
         </div>
 
