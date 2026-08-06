@@ -5,7 +5,8 @@ import {
   ExternalLink,
   Sparkles,
   Compass,
-  ArrowUpRight
+  ArrowUpRight,
+  Heart
 } from 'lucide-react';
 import {
   VENUE_INFO,
@@ -126,6 +127,14 @@ export const VenueMapSection: React.FC = () => {
               </div>
             </div>
 
+          </div>
+
+          {/* Adults-Only Celebration Note */}
+          <div className="mt-12 text-center max-w-xl mx-auto">
+            <div className="inline-flex items-center space-x-2 bg-[#21050e] border border-rose-800/50 px-5 py-3 rounded-2xl shadow-lg text-rose-200 text-xs sm:text-sm font-sans leading-relaxed">
+              <Heart className="w-4 h-4 text-amber-300 shrink-0 fill-amber-300/20" />
+              <span>We adore your little ones, but our evening reception will be an adults-only celebration.</span>
+            </div>
           </div>
 
         </div>
