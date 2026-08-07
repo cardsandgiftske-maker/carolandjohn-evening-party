@@ -7,6 +7,7 @@ import { RSVPForm } from './components/RSVPForm';
 import { HostDashboard } from './components/HostDashboard';
 import { Footer } from './components/Footer';
 import { EnclosedEnvelope } from './components/EnclosedEnvelope';
+import { BackgroundMusicPlayer } from './components/BackgroundMusicPlayer';
 import { INITIAL_DEMO_RSVPS } from './data/weddingData';
 import { RSVPData } from './types';
 import { fetchRsvpsFromFirebase, deleteRsvpFromFirebase } from './lib/firebase';
@@ -133,6 +134,9 @@ export default function App() {
           onAddManualRsvp={handleAddManualRsvp}
         />
       )}
+
+      {/* Floating Background Music Player */}
+      <BackgroundMusicPlayer autoPlayTriggered={!showEnvelope} />
     </div>
   );
 }
