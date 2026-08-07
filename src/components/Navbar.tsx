@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, Menu, X, Send, Lock, UserCheck, Mail, Music, MapPin } from 'lucide-react';
+import { Heart, Menu, X, Send, Lock, UserCheck, Mail, Music, MapPin, Volume2, VolumeX } from 'lucide-react';
+import { toggleBackgroundMusic, isMusicPlaying } from '../lib/audioManager';
 
 interface NavbarProps {
   activeSection: string;
@@ -18,6 +19,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const checkPlaying = () => {
+      setIsPlaying(isMusicPlaying());
+    };
+    const interval = setInterval(checkPlaying, 800);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleToggleSound = () => {
+    const newState = toggleBackgroundMusic();
+    setIsPlaying(newState);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,6 +114,29 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Action Controls */}
         <div className="hidden md:flex items-center space-x-3">
+          {/* Background Music Toggle */}
+          <button
+            onClick={handleToggleSound}
+            title={isPlaying ? 'Mute Background Music (Nakei Nairobi)' : 'Play Background Music (Nakei Nairobi)'}
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+              isPlaying
+                ? 'bg-rose-950/80 text-amber-300 border-amber-400/60 shadow-sm shadow-amber-500/20'
+                : 'bg-[#2a0712] text-rose-300/70 border-rose-800/40 hover:text-amber-200'
+            }`}
+          >
+            {isPlaying ? (
+              <>
+                <Volume2 className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+                <span className="text-[11px] font-mono">Music Playing</span>
+              </>
+            ) : (
+              <>
+                <VolumeX className="w-3.5 h-3.5" />
+                <span className="text-[11px] font-mono">Play Song</span>
+              </>
+            )}
+          </button>
+
           <button
             onClick={() => handleNavClick('rsvp')}
             className="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-rose-950 px-5 py-1.5 rounded-full text-xs uppercase tracking-wider font-semibold shadow-md shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -124,6 +162,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile menu trigger */}
         <div className="md:hidden flex items-center space-x-2">
+          <button
+            onClick={handleToggleSound}
+            className={`p-2 rounded-full border transition-all ${
+              isPlaying
+                ? 'bg-rose-950 text-amber-300 border-amber-400/60'
+                : 'bg-[#2b0813] text-rose-300/70 border-rose-800/40'
+            }`}
+            title={isPlaying ? 'Mute Music' : 'Play Music'}
+          >
+            {isPlaying ? <Volume2 className="w-4 h-4 animate-pulse text-amber-300" /> : <VolumeX className="w-4 h-4" />}
+          </button>
+
           <button
             onClick={onOpenHostDashboard}
             className="p-2 text-amber-300 hover:text-amber-200 bg-[#2b0813] rounded-full border border-rose-800/40"
