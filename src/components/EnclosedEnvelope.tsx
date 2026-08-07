@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { EVENT_DETAILS, GOOGLE_MAPS_URL } from '../data/weddingData';
 import { Heart, ArrowRight, ExternalLink } from 'lucide-react';
+import { playBackgroundMusic } from '../lib/audioManager';
 
 interface EnclosedEnvelopeProps {
   onOpenComplete: () => void;
@@ -13,6 +14,9 @@ export const EnclosedEnvelope: React.FC<EnclosedEnvelopeProps> = ({ onOpenComple
   const [isDismissed, setIsDismissed] = useState(false);
 
   const handleOpenEnvelope = () => {
+    // Synchronously trigger background music on user click
+    playBackgroundMusic();
+
     if (isOpen || isOpening) return;
 
     setIsOpening(true);
@@ -38,6 +42,7 @@ export const EnclosedEnvelope: React.FC<EnclosedEnvelopeProps> = ({ onOpenComple
   };
 
   const handleEnterSite = () => {
+    playBackgroundMusic();
     setIsDismissed(true);
     setTimeout(() => {
       onOpenComplete();
@@ -76,10 +81,10 @@ export const EnclosedEnvelope: React.FC<EnclosedEnvelopeProps> = ({ onOpenComple
           
           {/* Card Inside (Slides Up when open) */}
           <div
-            className={`absolute left-4 right-4 bg-gradient-to-b from-[#2d0714] via-[#23050f] to-[#1a040a] border-2 border-amber-400/40 rounded-2xl p-6 sm:p-8 text-center shadow-2xl transition-all duration-1000 ease-out z-10 ${
+            className={`absolute left-4 right-4 bg-gradient-to-b from-[#2d0714] via-[#23050f] to-[#1a040a] border-2 border-amber-400/40 rounded-2xl p-6 sm:p-8 text-center shadow-2xl transition-all duration-1000 ease-out ${
               isOpen
-                ? 'top-[-80px] sm:top-[-110px] scale-100 opacity-100 shadow-rose-950/80'
-                : 'top-4 scale-95 opacity-80 pointer-events-none'
+                ? 'top-[-80px] sm:top-[-110px] scale-100 opacity-100 shadow-rose-950/80 z-30'
+                : 'top-10 scale-90 opacity-0 pointer-events-none z-10'
             }`}
           >
             {/* Corner Flourishes */}
