@@ -192,6 +192,12 @@ app.get('/api/rsvps/export/csv', async (req, res) => {
 });
 
 async function startServer() {
+  // Serve static assets in public folder (e.g. /og-image.jpg, /nakei-nairobi.mp3)
+  const publicPath = path.join(process.cwd(), 'public');
+  if (fs.existsSync(publicPath)) {
+    app.use(express.static(publicPath));
+  }
+
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },
